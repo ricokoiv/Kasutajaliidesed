@@ -1,5 +1,9 @@
 $(function() {
 
+    $('input.cb').on('change', function() {
+    $('input.cb').not(this).prop('checked', false);
+    });
+
     $('#login-form-link').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
  		$("#register-form").fadeOut(100);
@@ -31,9 +35,17 @@ $(function() {
            alert('Passwords need to match.');
            return false;
        } else {
-           localStorage.setItem('username', $("#register-username").val());
-           localStorage.password=$("#confirm-password").val();
-           localStorage.email=$("#email").val();
+           if($("#student-cb").is(':checked')) {
+               var studentEntity = { 'username': $("#register-username").val(),
+                                  'password': $("#confirm-password").val(),
+                                  'email': $("#email").val()};
+               localStorage.setItem('studentEntity', JSON.stringify(studentEntity));
+           } else {
+               var teacherEntity = { 'username': $("#register-username").val(),
+                                  'password': $("#confirm-password").val(),
+                                  'email': $("#email").val()};
+               localStorage.setItem('teacherEntity', JSON.stringify(teacherEntity));
+           }
            alert('Registering successful.');
            location.reload();
            return false;
@@ -43,16 +55,19 @@ $(function() {
 
     // kui klikitakse login
     $('#login-submit').click( function() {
+        var studentObject = localStorage.getItem('studentEntity');
+        var teacherObject = localStorage.getItem('teacherEntity');
 
-        if ($("#username").val() == localStorage.username && $("#password").val() == localStorage.password) {
-            console.log(localStorage.username);
-            console.log(localStorage.password);
+        if ($("#username").val() == JSON.parse(studentObject).username &&
+            $("#password").val() == JSON.parse(studentObject).password) {
             window.location = "index.html";
+            return false;
+        } else if ($("#username").val() == JSON.parse(teacherObject).username &&
+                   $("#password").val() == JSON.parse(teacherObject).password) {
+            window.location = "teacherindex.html";
             return false;
         } else {
             alert('Wrong username or password');
-            console.log(localStorage.username);
-            console.log(localStorage.password);
             return false;
         }
 

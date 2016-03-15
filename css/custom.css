@@ -222,3 +222,7 @@ h3 {
     margin-bottom: 1%;
     padding-bottom: 10px;
 }
+
+#register-checkbox {
+    text-align:center;
+}
