@@ -1,0 +1,322 @@
+$bg-color: #fff;
+$bg-color-login: #fafcff;
+$nav-bgcolor: #fff;
+$nav-selected-bgcolor: #1A1F2F;
+$nav-selected-color: #F1EDED;
+$nav-unselected-color: #9298A9;
+$red: #FB1A51;
+$darker-red: #b3052f;
+$blue: #0073f7;
+$blue-light: #6ca5ff;
+$blue-lighter: #7eccff;
+$blue-dark: #4e92fd;
+$light-gray: #D6D6D6;
+$lighter-gray: #E8E8E8;
+$even-lighter-gray: #fafbfc;
+$gray: #8b92a5;
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+}
+body {
+  background-color: $bg-color;
+  font-family: 'Raleway', sans-serif;
+  &.login-body {
+    background-color: $bg-color-login;
+    background: url(../img/login-bg.jpg);
+    background-size: cover;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    .container-fluid {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.header {
+  padding-bottom: 10px;
+  border-bottom: 3px solid $blue;
+}
+.block {
+  margin-top: 15px;
+}
+.block-header {
+  border-bottom: 3px solid $blue;
+}
+.li-header {
+  border-bottom: 1px solid black;
+}
+h1 {
+  font-weight: 700;
+}
+h2 {
+  font-weight: 700;
+  font-size: 28px;
+}
+h3 {
+  font-weight: 600;
+}
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* NavBar on the left */
+.red-button {
+  color: $red !important;
+
+  &:hover {
+    color: $darker-red !important;
+  }
+}
+.logout-li {
+  border-top: 1px solid $lighter-gray;
+}
+.navcol {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar {
+  //border: none;
+  //box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.4);
+  // eceff5
+  border-right: 1px solid  $lighter-gray !important;
+}
+.navbar-default {
+  background-color: $nav-bgcolor;
+}
+.navbar-default {
+  .navbar-nav {
+    li {
+      height: 50px;
+    }
+    a:hover {
+      color: red;
+    }
+    .active {
+      a {
+        color: $blue;
+        //box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.4);
+        background-color: white;
+        &:focus,
+        &:hover,
+         {
+           background-color: white;
+           color: $blue;
+         }
+      }
+    }
+  }
+}
+.navbar-brand {
+  color: $blue !important;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+.nav-icon {
+  font-size: 25px !important;
+  margin-top: -3px;
+  position: absolute;
+  margin-left: -25px;
+
+  &.lighter {
+    font-weight: lighter;
+  }
+}
+/*Login & Register CSS*/
+.panel-login {
+  border-radius: 0;
+  box-shadow: 0 0 80px -6px rgba(195,204,217,1);
+  max-width: 400px;
+}
+.panel-body {
+  form {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+.panel-login>.panel-heading {
+  color: #00415d;
+  background-color: #fff;
+  border-color: #fff;
+  text-align: center;
+}
+.panel-login>.panel-heading a {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.1s linear;
+  &.active {
+    color: $blue;
+    font-size: 18px;
+  }
+}
+.panel-login>.panel-heading hr {
+  margin-top: 10px;
+  margin-bottom: 0;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],
+.panel-login input[type="email"],
+.panel-login input[type="password"] {
+  height: 45px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 16px;
+  color: $light-gray;
+  transition: all 0.150s linear;
+  border-bottom: 1px solid $light-gray;
+  padding-left: 5px;
+  &:focus {
+    box-shadow: none;
+    color: $gray;
+    border-color: $blue;
+  }
+}
+.btn-login {
+  background-color: $blue;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 50px;
+  box-shadow: none;
+  margin-top: 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: $blue-dark;
+  }
+}
+.forgot-password {
+  text-decoration: underline;
+  color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+  text-decoration: underline;
+  color: #666;
+}
+.btn-register {
+  background-color: #39C3E4;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #39C3E4;
+}
+.btn-register:hover,
+.btn-register:focus {
+  color: #fff;
+  background-color: #53A3CD;
+  border-color: #53A3CD;
+}
+.login-header {
+  max-width: 420px;
+  color: white;
+  .login-panel-header {
+    color: $blue;
+    margin-bottom: 20px;
+    h1 {
+      font-size: 125px;
+    }
+  }
+}
+#register-checkbox {
+  text-align: center;
+}
+@media (max-width: 1488px) {
+  .panel-body {
+    form {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .panel-body {
+    form {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .navbar-collapse {
+    height: auto;
+    border-top: 0;
+    box-shadow: none;
+    max-height: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-brand {
+    width: 100%;
+    font-size: 50px;
+    height: 80px;
+    padding-top: 18px;
+  }
+  .navcol {
+    height: 100vh;
+    width: 180px;
+
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    width: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-collapse.in {
+    overflow-x: visible;
+  }
+  .navbar {
+    max-width: 250px;
+    height: 100vh;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+    color: white;
+  }
+  .navbar-nav,
+  .navbar-nav > li,
+  .navbar-left,
+  .navbar-right,
+  .navbar-header {
+    float: none !important;
+  }
+  .navbar-right .dropdown-menu {
+    left: 0;
+    right: auto;
+  }
+  .navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+  }
+}

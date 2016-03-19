@@ -22,17 +22,7 @@ $(function() {
     // kui klikitakse register
     $('#register-submit').click( function() {
 
-       if ($("#register-username").val() === '') {
-           alert('You must enter a username.');
-           return false;
-       } else if($("#email").val() === '') {
-           alert('You must enter an email.');
-           return false;
-       } else if ($("#register-password").val() === '') {
-           alert('Password field cant be empty.');
-           return false;
-       } else if($("#confirm-password").val() !== $("#register-password").val()) {
-           alert('Passwords need to match.');
+       if($("#confirm-password").val() !== $("#register-password").val()) {
            return false;
        } else {
            if($("#student-cb").is(':checked')) {
