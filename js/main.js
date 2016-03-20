@@ -106,3 +106,16 @@ $('#ma2-e').click(function() {
 $('.icon-close').click(function() {
   $('.statistics').toggleClass('statistics-open');
 })
+
+var easeOutCubic = function (t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t + b;
+		return c/2*((t-=2)*t*t + 2) + b;
+	}
+var options = {
+  easingFn: easeOutCubic
+};
+
+var eap_total_anim = new CountUp("eap_total", 0, 137, 0, 0 , options);
+var eap_left_anim = new CountUp("eap_left", 0, 43, 0, 0, options);
+eap_total_anim.start();
+eap_left_anim.start();
