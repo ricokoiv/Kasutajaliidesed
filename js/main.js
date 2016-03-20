@@ -26,6 +26,9 @@ $('#ma2-kt1').click(function() {
   } else {
     $('.statistics').data("opener", $(this).attr('id'));
   }
+
+  $('#statistics-name').text('Matemaatiline Analüüs II - Kontrolltöö I');
+
   var data = {
     labels: ['0', '1', '2', '3', '4', '5'],
       series: [
@@ -70,6 +73,9 @@ $('#ma2-e').click(function() {
   } else {
     $('.statistics').data("opener", $(this).attr('id'));
   }
+
+  $('#statistics-name').text('Matemaatiline Analüüs II - Eksam');
+
   var data = {
     labels: ['0', '1', '2', '3', '4', '5'],
       series: [
