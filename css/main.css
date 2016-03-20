@@ -212,7 +212,12 @@ h3 {
 @media (max-width: 768px) {
   .panel-body form {
     padding-left: 10px;
-    padding-right: 10px; } }
+    padding-right: 10px; }
+
+  .grade-progress {
+    height: 130px !important; }
+    .grade-progress .progress-eap h2 {
+      margin-top: 0 !important; } }
 @media (min-width: 768px) {
   .navbar-collapse {
     height: auto;
@@ -264,5 +269,83 @@ h3 {
 
   .navbar-collapse .navbar-nav.navbar-right:last-child {
     margin-right: 0; } }
+.grade-progress {
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 20px;
+  height: 110px; }
+  .grade-progress .progress-eap h4 {
+    font-weight: bold;
+    font-size: 15px; }
+  .grade-progress h1, .grade-progress h2, .grade-progress h3, .grade-progress h4, .grade-progress #grade-progress {
+    display: inline-block; }
+  .grade-progress #grade-progress {
+    margin-top: 5px; }
+    .grade-progress #grade-progress svg {
+      background-color: #fafbfc; }
+
+li {
+  margin-top: 5px; }
+  li .col-xs-12 {
+    margin-top: 1px; }
+  li .li-subject {
+    border-bottom: 1px solid #E8E8E8; }
+    li .li-subject .col-xs-11 {
+      padding-left: 0; }
+    li .li-subject:hover {
+      cursor: pointer; }
+    li .li-subject .li-arrow {
+      position: absolute;
+      margin-top: 6px;
+      margin-left: 5px;
+      display: inline-block;
+      font-size: 20px !important;
+      transition: transform 400ms linear; }
+      li .li-subject .li-arrow.li-subject-open {
+        transform: rotate(90deg); }
+    li .li-subject .li-passed, li .li-subject .li-fail {
+      font-size: 50px !important;
+      color: #67e889;
+      position: absolute;
+      margin-top: -15px; }
+    li .li-subject .li-fail {
+      color: #FB1A51; }
+    li .li-subject h4 {
+      margin-left: 30px;
+      display: inline-block; }
+  li .li-subject-container {
+    display: none;
+    background-color: white;
+    padding-bottom: 20px; }
+    li .li-subject-container .li-subject-container-grades .row {
+      padding: 10px; }
+    li .li-subject-container .li-subject-container-grades li {
+      border-bottom: 1px solid #E8E8E8; }
+
+.ct-label {
+  font-size: 15px !important; }
+
+.ct-series-a .ct-bar {
+  stroke: #0073f7; }
+
+.statistics {
+  display: none; }
+
+.statistics-open {
+  display: block; }
+
+.statistics-true {
+  cursor: pointer; }
+
+.icon-close {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 38px;
+  cursor: pointer; }
+
+.icon-stats {
+  font-size: 20px;
+  position: absolute;
+  margin-top: -3px; }
 
 /*# sourceMappingURL=main.css.map */

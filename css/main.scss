@@ -6,6 +6,7 @@ $nav-selected-color: #F1EDED;
 $nav-unselected-color: #9298A9;
 $red: #FB1A51;
 $darker-red: #b3052f;
+$green: #67e889;
 $blue: #0073f7;
 $blue-light: #6ca5ff;
 $blue-lighter: #7eccff;
@@ -265,6 +266,16 @@ h3 {
       padding-right: 10px;
     }
   }
+  .grade-progress {
+    height: 130px !important;
+
+    .progress-eap {
+      h2 {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
 }
 @media (min-width: 768px) {
   .navbar-collapse {
@@ -319,4 +330,126 @@ h3 {
   .navbar-collapse .navbar-nav.navbar-right:last-child {
     margin-right: 0;
   }
+}
+
+.grade-progress {
+  border-bottom: 1px solid $lighter-gray;
+  padding-bottom: 20px;
+  height: 110px;
+
+  .progress-eap {
+    h4 {
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
+  h1, h2, h3, h4, #grade-progress {
+    display: inline-block;
+  }
+
+  #grade-progress {
+    margin-top: 5px;
+    svg {
+      background-color: $even-lighter-gray;
+    }
+  }
+}
+
+li {
+  margin-top: 5px;
+  .col-xs-12 {
+    margin-top: 1px;
+  }
+
+  .li-subject {
+    border-bottom: 1px solid $lighter-gray;
+
+    .col-xs-11 {
+      padding-left: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .li-arrow {
+      position: absolute;
+      margin-top: 6px;
+      margin-left: 5px;
+      display: inline-block;
+      font-size: 20px !important;
+      transition: transform 400ms linear;
+
+      &.li-subject-open {
+        transform: rotate(90deg);
+      }
+    }
+
+    .li-passed {
+      font-size: 50px !important;
+      color: $green;
+      position: absolute;
+      margin-top: -15px;
+    }
+    .li-fail {
+      @extend .li-passed;
+      color: $red;
+    }
+    h4 {
+      margin-left: 30px;
+      display: inline-block;
+    }
+  }
+
+  .li-subject-container {
+    display: none;
+    background-color: white;
+    padding-bottom: 20px;
+
+    .li-subject-container-grades {
+      .row {
+
+        padding: 10px;
+      }
+
+      li {
+        border-bottom: 1px solid $lighter-gray;
+      }
+    }
+  }
+}
+
+.ct-label {
+  font-size: 15px !important;
+}
+
+.ct-series-a .ct-bar {
+  stroke: $blue;
+}
+
+.statistics {
+  display: none;
+}
+
+.statistics-open {
+  display: block;
+}
+
+.statistics-true {
+  cursor: pointer;
+}
+
+.icon-close {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 38px;
+  cursor: pointer;
+}
+
+.icon-stats {
+  font-size: 20px;
+  position: absolute;
+  margin-top: -3px;
 }
