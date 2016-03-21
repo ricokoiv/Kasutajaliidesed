@@ -7,6 +7,10 @@ $nav-unselected-color: #9298A9;
 $red: #FB1A51;
 $darker-red: #b3052f;
 $green: #67e889;
+$green-darker: #1be04f;
+$green-even-darker: #16d448;
+$yellow: #ffc800;
+$yellow-darker: #f5c000;
 $blue: #0073f7;
 $blue-light: #6ca5ff;
 $blue-lighter: #7eccff;
@@ -14,8 +18,8 @@ $blue-dark: #4e92fd;
 $light-gray: #D6D6D6;
 $lighter-gray: #E8E8E8;
 $even-lighter-gray: #fafbfc;
+$disabled-button-grey: #e6e6e6;
 $gray: #8b92a5;
-
 .btn:focus,
 .btn:active {
   outline: none !important;
@@ -73,7 +77,6 @@ h3 {
 /* NavBar on the left */
 .red-button {
   color: $red !important;
-
   &:hover {
     color: $darker-red !important;
   }
@@ -89,7 +92,7 @@ h3 {
   //border: none;
   //box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.4);
   // eceff5
-  border-right: 1px solid  $lighter-gray !important;
+  border-right: 1px solid $lighter-gray !important;
 }
 .navbar-default {
   background-color: $nav-bgcolor;
@@ -110,9 +113,9 @@ h3 {
         &:focus,
         &:hover,
          {
-           background-color: white;
-           color: $blue;
-         }
+          background-color: white;
+          color: $blue;
+        }
       }
     }
   }
@@ -122,13 +125,11 @@ h3 {
   font-size: 30px;
   padding-top: 10px;
 }
-
 .nav-icon {
   font-size: 25px !important;
   margin-top: -3px;
   position: absolute;
   margin-left: -25px;
-
   &.lighter {
     font-weight: lighter;
   }
@@ -265,14 +266,12 @@ h3 {
   }
   .grade-progress {
     height: 130px !important;
-
     .progress-eap {
       h2 {
         margin-top: 0 !important;
       }
     }
   }
-
 }
 @media (min-width: 768px) {
   .navbar-collapse {
@@ -292,7 +291,6 @@ h3 {
   .navcol {
     height: 100vh;
     width: 180px;
-
   }
   .navbar-collapse.collapse {
     display: block !important;
@@ -328,23 +326,23 @@ h3 {
     margin-right: 0;
   }
 }
-
 .grade-progress {
   border-bottom: 1px solid $lighter-gray;
   padding-bottom: 20px;
   height: 110px;
-
   .progress-eap {
     h4 {
       font-weight: bold;
       font-size: 15px;
     }
   }
-
-  h1, h2, h3, h4, #grade-progress {
+  h1,
+  h2,
+  h3,
+  h4,
+  #grade-progress {
     display: inline-block;
   }
-
   #grade-progress {
     margin-top: 5px;
     svg {
@@ -352,24 +350,19 @@ h3 {
     }
   }
 }
-
 li {
   margin-top: 5px;
   .col-xs-12 {
     margin-top: 1px;
   }
-
   .li-subject {
     border-bottom: 1px solid $lighter-gray;
-
     .col-xs-11 {
       padding-left: 0;
     }
-
     &:hover {
       cursor: pointer;
     }
-
     .li-arrow {
       position: absolute;
       margin-top: 6px;
@@ -377,12 +370,10 @@ li {
       display: inline-block;
       font-size: 20px !important;
       transition: transform 400ms linear;
-
       &.li-subject-open {
         transform: rotate(90deg);
       }
     }
-
     .li-passed {
       font-size: 50px !important;
       color: $green;
@@ -398,45 +389,38 @@ li {
       display: inline-block;
     }
   }
-
   .li-subject-container {
     display: none;
     background-color: white;
     padding-bottom: 20px;
-
     .li-subject-container-grades {
       .row {
-
         padding: 10px;
       }
-
       li {
         border-bottom: 1px solid $lighter-gray;
       }
     }
   }
 }
-
+.grading-li {
+  cursor: pointer;
+}
 .ct-label {
   font-size: 15px !important;
 }
-
 .ct-series-a .ct-bar {
   stroke: $blue;
 }
-
 .statistics {
   display: none;
 }
-
 .statistics-open {
   display: block;
 }
-
 .statistics-true {
   cursor: pointer;
 }
-
 .icon-close {
   font-size: 20px;
   position: absolute;
@@ -444,9 +428,68 @@ li {
   margin-left: 38px;
   cursor: pointer;
 }
-
 .icon-stats {
   font-size: 20px;
   position: absolute;
   margin-top: -3px;
+}
+.subject-button {
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  &.subject-add-work {
+    background-color: $green-darker;
+    border-right: 1px solid white;
+    &:hover {
+      background-color: $green-even-darker;
+    }
+    i {
+      font-size: 25px;
+      position: absolute;
+      margin-left: -20px;
+    }
+  }
+  &.subject-grouping {
+    background-color: $yellow;
+    &:hover {
+      background-color: $yellow-darker;
+    }
+    i {
+      font-size: 25px;
+      position: absolute;
+      margin-left: -30px;
+    }
+  }
+}
+.subject-work-input {
+
+  height: 20px;
+
+  input {
+    height: 20px;
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -5px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    color: $light-gray;
+    transition: all 0.150s linear;
+    border-bottom: 1px solid $light-gray;
+    padding-left: 5px;
+    padding-bottom: 13px;
+    &:focus {
+      box-shadow: none;
+      color: $gray;
+      border-color: $blue;
+    }
+  }
+}
+.btn-disabled {
+  pointer-events: none;
+  background-color: $disabled-button-grey !important;
 }

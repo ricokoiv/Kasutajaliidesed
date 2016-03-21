@@ -310,7 +310,11 @@ h3 {
   .grade-progress .progress-eap h4 {
     font-weight: bold;
     font-size: 15px; }
-  .grade-progress h1, .grade-progress h2, .grade-progress h3, .grade-progress h4, .grade-progress #grade-progress {
+  .grade-progress h1,
+  .grade-progress h2,
+  .grade-progress h3,
+  .grade-progress h4,
+  .grade-progress #grade-progress {
     display: inline-block; }
   .grade-progress #grade-progress {
     margin-top: 5px; }
@@ -355,6 +359,9 @@ li {
     li .li-subject-container .li-subject-container-grades li {
       border-bottom: 1px solid #E8E8E8; }
 
+.grading-li {
+  cursor: pointer; }
+
 .ct-label {
   font-size: 15px !important; }
 
@@ -381,5 +388,55 @@ li {
   font-size: 20px;
   position: absolute;
   margin-top: -3px; }
+
+.subject-button {
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer; }
+  .subject-button.subject-add-work {
+    background-color: #1be04f;
+    border-right: 1px solid white; }
+    .subject-button.subject-add-work:hover {
+      background-color: #16d448; }
+    .subject-button.subject-add-work i {
+      font-size: 25px;
+      position: absolute;
+      margin-left: -20px; }
+  .subject-button.subject-grouping {
+    background-color: #ffc800; }
+    .subject-button.subject-grouping:hover {
+      background-color: #f5c000; }
+    .subject-button.subject-grouping i {
+      font-size: 25px;
+      position: absolute;
+      margin-left: -30px; }
+
+.subject-work-input {
+  height: 20px; }
+  .subject-work-input input {
+    height: 20px;
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -5px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    color: #D6D6D6;
+    transition: all 0.150s linear;
+    border-bottom: 1px solid #D6D6D6;
+    padding-left: 5px;
+    padding-bottom: 13px; }
+    .subject-work-input input:focus {
+      box-shadow: none;
+      color: #8b92a5;
+      border-color: #0073f7; }
+
+.btn-disabled {
+  pointer-events: none;
+  background-color: #e6e6e6 !important; }
 
 /*# sourceMappingURL=main.css.map */
