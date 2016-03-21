@@ -135,12 +135,17 @@ h3 {
   }
 }
 /*Login & Register CSS*/
+.register-form {
+  display: none;
+}
 .panel-login {
   border-radius: 0;
   box-shadow: 0 0 80px -6px rgba(195,204,217,1);
   max-width: 400px;
 }
 .panel-body {
+  padding-top: 5px;
+
   form {
     padding-left: 35px;
     padding-right: 35px;
@@ -182,7 +187,7 @@ h3 {
   border-radius: 0;
   box-shadow: none;
   font-size: 16px;
-  color: $light-gray;
+  color: #424242;
   transition: all 0.150s linear;
   border-bottom: 1px solid $light-gray;
   padding-left: 5px;
@@ -202,7 +207,7 @@ h3 {
   padding: 14px 0;
   border-radius: 50px;
   box-shadow: none;
-  margin-top: 15px;
+  margin-top: 35px;
   &:hover,
   &:focus {
     color: white;
@@ -492,4 +497,64 @@ li {
 .btn-disabled {
   pointer-events: none;
   background-color: $disabled-button-grey !important;
+}
+
+.alert-error {
+  color: $red;
+  height: 21px;
+}
+
+/* Radio boxes */
+
+.checkbox-custom, .radio-custom {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-label, .radio-custom-label {
+    position: relative;
+    color: $gray;
+    font-weight: lighter;
+    outline: none !important;
+}
+
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    background: rebeccapurple;
+    color: $blue;
+}
+
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    color: $blue;
+}
+
+.checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
+  outline: 1px solid #ddd; /* focus style */
 }

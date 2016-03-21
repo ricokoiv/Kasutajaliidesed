@@ -23,7 +23,6 @@
             </div>
             <div class="panel panel-login">
                 <div class="panel-heading">
-                <div id="alert"></div>
                 <div id="alert-success"></div>
                     <div class="row">
                         <div class="col-xs-6">
@@ -37,45 +36,38 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <form id="login-form" action="index.html" method="post" role="form" style="display: block;">
+                        <div class="col-xs-12 text-center">
+                          <div class="alert-error" id="alert"></div>
+                        </div>
+                        <div class="col-xs-12">
+                            <form id="login-form" action="" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Kasutajanimi" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Parool" required>
                                 </div>
+                                <div class="register-form">
+                                  <div class="form-group">
+                                      <input type="password" name="confirm-password" id="confirm-password" tabindex="3" class="form-control" placeholder="Korda parooli">
+                                  </div>
+                                  <div class="form-group">
+                                      <input type="text" name="fullname" id="fullname" tabindex="4" class="form-control" placeholder="Täisnimi" value="">
+                                  </div>
+                                  <div class="form-group" id="register-checkbox">
+                                      <div class="col-xs-6">
+                                        <input class="cb radio-custom" id="student-cb" type="radio" name="radio-group" checked><label for="student-cb" name="radio-group" class="radio-custom-label">Tudeng</label>
+                                      </div>
+                                      <div class="col-xs-6">
+                                          <input class="cb radio-custom" id="teacher-cb" type="radio" name="radio-group"><label for="teacher-cb" name="radio-group" class="radio-custom-label">Õppejõud</label>
+                                      </div>
+                                  </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-xs-8 col-xs-offset-2">
                                             <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Logi sisse">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                                <div class="form-group">
-                                    <input type="text" name="register-username" id="register-username" tabindex="1" class="form-control" placeholder="Kasutajanimi" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="fullname" id="fullname" tabindex="1" class="form-control" placeholder="Täisnimi" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="register-password" id="register-password" tabindex="2" class="form-control" placeholder="Parool" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Korda parooli" required>
-                                </div>
-                                <div class="form-group" id="register-checkbox">
-                                    <label>
-                                        <input class="cb" id="student-cb" type="checkbox" checked>Tudeng</label>
-                                    <label>
-                                        <input class="cb" type="checkbox">Õppejõud</label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-8 col-xs-offset-2">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-login" value="Registreeru">
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-login hide" value="Registreeru">
                                         </div>
                                     </div>
                                 </div>
