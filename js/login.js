@@ -63,7 +63,7 @@ $(function() {
           'fullname': $("#fullname").val()
         };
         localStorage.setItem('studentEntity', JSON.stringify(studentEntity));
-        window.location = "index.html";
+        window.location = "studentindex.html";
         return false;
       } else {
         var teacherEntity = {
@@ -93,7 +93,7 @@ $(function() {
     if (studentObject) {
       if ($("#username").val() == JSON.parse(studentObject).username &&
         $("#password").val() == JSON.parse(studentObject).password) {
-        window.location = "index.html";
+        window.location = "studentindex.html";
         return false;
       }
     } else if (teacherObject) {
