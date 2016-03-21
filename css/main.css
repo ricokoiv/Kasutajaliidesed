@@ -200,7 +200,44 @@ h3 {
       font-size: 125px; }
 
 #register-checkbox {
-  text-align: center; }
+  text-align: center;
+  font-weight: bold;
+  color: #666666; }
+
+#alert {
+    color: #ff1a1a;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#alert-success {
+    color: #2eb82e;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#submission-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 150%;
+}
+
+#submission-input-file {
+    margin-bottom: 10px;
+}
+
+.btn-upload {
+  background-color: #0073f7;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  border-radius: 50px;
+  box-shadow: none; }
+  .btn-upload:hover, .btn-upload:focus {
+    color: white;
+    background-color: #4e92fd; }
 
 @media (max-width: 1488px) {
   .panel-body form {
