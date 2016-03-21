@@ -24,7 +24,9 @@ $('.subject-add-work').click(function() {
   if (!$('.subject-work-input-true').length) {
     var button = $(this);
     button.addClass('btn-disabled');
-    button.parent().append('<li id="ma2-kt1"><div class="row"><div class="col-xs-12 subject-work-input"><input type="text" tabindex="1" class="form-control subject-work-input-true" id="subject-work-input" placeholder="Sisesta töö nimi" value="" required></div></div></li>');
+    button.parent().find('.subject-grouping').after('<li id="ma2-kt1"><div class="row"><div class="col-xs-11 subject-work-input"><input type="text" tabindex="1" class="form-control subject-work-input-true" id="subject-work-input" placeholder="Sisesta töö nimi" value="" required></div></div></li>');
+
+    $('#subject-work-input').focus();
 
     $('#subject-work-input').keyup(function (e) {
       if (e.keyCode === 13) {
@@ -33,7 +35,7 @@ $('.subject-add-work').click(function() {
         if ($(this).val() === "") {
           $(this).closest('li').remove();
         } else {
-          $(this).closest('.col-xs-12').addClass('col-xs-10').removeClass('col-xs-12').removeClass('subject-work-input').text(subject_work_name).closest('.row');
+          $(this).closest('.col-xs-11').addClass('col-xs-10').removeClass('col-xs-11').removeClass('subject-work-input').text(subject_work_name).closest('.row');
           // .append('<div class="col-xs-1"><i class="ion-ios-color-wand-outline icon-stats"></i></div>');
         }
 
