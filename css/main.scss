@@ -6,6 +6,7 @@ $nav-selected-color: #F1EDED;
 $nav-unselected-color: #9298A9;
 $red: #FB1A51;
 $darker-red: #b3052f;
+$dfrnt-red: #e61649;
 $green: #67e889;
 $green-darker: #1be04f;
 $green-even-darker: #16d448;
@@ -145,7 +146,6 @@ h3 {
 }
 .panel-body {
   padding-top: 5px;
-
   form {
     padding-left: 35px;
     padding-right: 35px;
@@ -470,9 +470,7 @@ li {
   }
 }
 .subject-work-input {
-
   height: 20px;
-
   input {
     height: 20px;
     position: absolute;
@@ -494,67 +492,162 @@ li {
     }
   }
 }
+.list-grades-input {
+  input {
+    text-align: center;
+    height: 20px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    transition: all 0.150s linear;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 13px;
+    margin-top: 4px;
+    &:focus {
+      box-shadow: none;
+      border-color: $blue;
+    }
+  }
+}
 .btn-disabled {
   pointer-events: none;
   background-color: $disabled-button-grey !important;
 }
-
 .alert-error {
   color: $red;
   height: 21px;
 }
-
-/* Radio boxes */
-
-.checkbox-custom, .radio-custom {
-    opacity: 0;
+.btn-change {
+  margin-top: 4px;
+  line-height: 30px;
+  text-align: center;
+  background-color: $red;
+  color: white;
+  border-left: 1px solid white;
+  &:hover {
+    background-color: $dfrnt-red;
+  }
+  .icon-wand {
     position: absolute;
+    margin-left: -28px;
+    margin-top: -1px;
+    font-size: 25px;
+  }
+  .icon-tick {
+    display: none;
+  }
+  .btn-change-text {
+    &:before {
+      content: 'Muuda';
+    }
+  }
+  &.change-true {
+    background-color: $yellow;
+    &:hover {
+      background-color: $yellow-darker;
+    }
+    .icon-tick {
+      @extend .icon-wand;
+      font-size: 18px;
+      margin-left: -23px;
+      margin-top: 0;
+      display: inline-block !important;
+    }
+    .icon-wand {
+      display: none;
+    }
+    .btn-change-text {
+      &:before {
+        content: 'Valmis';
+      }
+    }
+  }
 }
-
-.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 5px;
-    cursor: pointer;
+/* Radio boxes */
+.checkbox-custom,
+.radio-custom {
+  opacity: 0;
+  position: absolute;
 }
-
-.checkbox-custom-label, .radio-custom-label {
-    position: relative;
-    color: $gray;
-    font-weight: lighter;
-    outline: none !important;
+.checkbox-custom,
+.checkbox-custom-label,
+.radio-custom,
+.radio-custom-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  cursor: pointer;
 }
-
-.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
-    content: '';
-    background: #fff;
-    border: 2px solid #ddd;
-    display: inline-block;
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
-    padding: 0px;
-    margin-right: 10px;
-    text-align: center;
+.checkbox-custom-label,
+.radio-custom-label {
+  position: relative;
+  color: $gray;
+  font-weight: lighter;
+  outline: none !important;
 }
-
-.checkbox-custom:checked + .checkbox-custom-label:before {
-    content: "\f00c";
-    font-family: 'FontAwesome';
-    background: rebeccapurple;
-    color: $blue;
-}
-
+.checkbox-custom + .checkbox-custom-label:before,
 .radio-custom + .radio-custom-label:before {
-    border-radius: 50%;
+  content: '';
+  background: #fff;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin-right: 10px;
+  text-align: center;
 }
-
+.checkbox-custom:checked + .checkbox-custom-label:before {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  background: rebeccapurple;
+  color: $blue;
+}
+.radio-custom + .radio-custom-label:before {
+  border-radius: 50%;
+}
 .radio-custom:checked + .radio-custom-label:before {
-    content: "\f00c";
-    font-family: 'FontAwesome';
-    color: $blue;
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  color: $blue;
+}
+.checkbox-custom:focus + .checkbox-custom-label,
+.radio-custom:focus + .radio-custom-label {
+  outline: 1px solid #ddd;
 }
 
-.checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
-  outline: 1px solid #ddd; /* focus style */
+.name-list {
+  margin-top: 20px;
+
+  .name-list-header {
+    border-bottom: 3px solid $blue;
+    h4 {
+      font-weight: 600;
+    }
+  }
+
+  ul {
+    margin-top: 5px;
+
+    li {
+      border-bottom: 1px solid $light-gray;
+      padding: 10px;
+      height: 45px;
+
+      .name-list-name {
+        padding-left: 30px;
+        font-weight: 600;
+      }
+      .name-list-grades {
+        &:empty {
+          &:after {
+            content: 'Puudub';
+            color: $red;
+          }
+        }
+      }
+    }
+  }
 }

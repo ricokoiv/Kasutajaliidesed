@@ -31,8 +31,19 @@ $(function() {
     e.preventDefault();
   });
 
+  function checkUsername(username) {
+    let students = localStorage.getItem('studentEntity'),
+        teachers = localStorage.getItem('teacherEntity');
+
+    if (JSON.parse(students).username === username || JSON.parse(teachers).username === username) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // kui klikitakse register
-  $('#register-submit').on('click', function() {
+  $('#register-submit').on('click', function(e) {
 
     if ($("#confirm-password").val() !== $("#register-password").val()) {
       $('.alert-error').text("Paroolid peavad ühtima!");
@@ -56,6 +67,13 @@ $(function() {
       $('#confirm-password').focus();
       return false;
     } else {
+      if (!checkUsername($("#register-username").val())) {
+        $('.alert-error').text("Kasutajanimi '" + $("#register-username").val() + "' on juba olemas!");
+        $('#register-username').focus();
+        e.preventDefault();
+        return false;
+      }
+
       if ($("#student-cb").is(':checked')) {
         var studentEntity = {
           'username': $("#register-username").val(),

@@ -11,10 +11,10 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,600,300,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" href="bower_components/dropzone/dropzone.css">
     <link href="css/main.css" rel="stylesheet">
-    <script src="bower_components/progressbar.js/dist/progressbar.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/dropzone/dropzone.js"></script>
 
 </head>
 
@@ -22,7 +22,6 @@
     <div class="container-fluid">
         <div class="col-xs-12 col-sm-3 navcol">
             <nav class="navbar navbar-default" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -33,12 +32,11 @@
                     <a class="navbar-brand text-center" href="studentindex.html"><i class="fa fa-book"></i></a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav text-center">
                         <li><a href="studentindex.html"><i class="ion-ios-home-outline nav-icon"></i>Esileht</a></li>
-                        <li class="active"><a href="#"><i class="ion-ios-list-outline nav-icon"></i>Hinded</a></li>
-                        <li><a href="#"><i class="ion-ios-compose-outline nav-icon"></i>Esitamine</a></li>
+                        <li><a href="grades.html"><i class="ion-ios-list-outline nav-icon"></i>Hinded</a></li>
+                        <li class="active"><a href="#"><i class="ion-ios-compose-outline nav-icon"></i>Esitamine</a></li>
                         <br>
                         <li class="logout-li"><a class="red-button" href="index.html">Logi välja</a></li>
                         <!-- <li class="dropdown">
@@ -52,14 +50,7 @@
                   </ul>
                 </li> -->
                     </ul>
-                    <!-- <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form> -->
-                </div>
-                <!-- /.navbar-collapse -->
             </nav>
         </div>
         <div class="col-xs-12 col-sm-9">
@@ -108,12 +99,13 @@
                                         <span>Töö nimi</span>
                                         <input type="text" class="title" placeholder="Nt. PR03" />
                                     </div>
-                                    <form method="post" action="#" enctype="multipart/form-data">
+                                    <div id="file-dropzone" class="dropzone"></div>
+                                    <!-- <form method="post" action="#" enctype="multipart/form-data">
                                         <div id="submission-input-file">
                                         <input type="file" name="upl" multiple />
                                         </div>
                                         <input type="submit" name="btn-upload" class="form-control btn btn-upload" value="Lae üles">
-                                    </form>
+                                    </form> -->
                                 </form>
                             </div>
                         </li>
@@ -164,8 +156,7 @@
         </div>
     </div>
     </div>
-    <script src="bower_components/countup.js/countUp.min.js"></script>
-    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="js/submission.js"></script>
     <script src="js/main.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
