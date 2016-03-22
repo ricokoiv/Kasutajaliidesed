@@ -32,7 +32,7 @@ $(function() {
   });
 
   function checkUsername(username) {
-    let students = localStorage.getItem('studentEntity'),
+    var students = localStorage.getItem('studentEntity'),
         teachers = localStorage.getItem('teacherEntity');
 
     if (JSON.parse(students).username === username || JSON.parse(teachers).username === username) {
@@ -114,7 +114,9 @@ $(function() {
         window.location = "studentindex.html";
         return false;
       }
-    } else if (teacherObject) {
+    }
+
+    if (teacherObject) {
       if ($("#username").val() == JSON.parse(teacherObject).username &&
         $("#password").val() == JSON.parse(teacherObject).password) {
         window.location = "teacherindex.html";
