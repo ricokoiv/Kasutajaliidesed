@@ -11,6 +11,64 @@ $('.icon-close').click(function() {
 $('#ma2-kt1').click(function() {
   if (!$('.statistics').hasClass('statistics-open')) {
     $('.statistics').toggleClass('statistics-open');
+
+    $(function() {
+      var inputText;
+      var $matching = $();
+
+      $(".name-container").mixItUp({
+        animation: {
+          enable: false
+        },
+        layout: {
+          display: 'list-item',
+          containerClass: 'list'
+        },
+        callbacks: {
+          onMixStart: function(state, futureState) {},
+          onMixFail: function() {},
+          onMixLoad: function() {
+            $(this).mixItUp('setOptions', {
+              animation: {
+                enable: true,
+                animateResizeTargets: true, // Animate the width/height of targets as the layout changes
+                effects: 'fade rotateX(-60deg) translateZ(-100px) stagger'
+              }
+            });
+          }
+        }
+      });
+
+      // Delay function
+      var delay = (function() {
+        var timer = 0;
+        return function(callback, ms) {
+          clearTimeout(timer);
+          timer = setTimeout(callback, ms);
+        };
+      })();
+
+
+
+      $("#name-filter").keyup(function() {
+        delay(function() {
+          inputText = $("#name-filter").val().toLowerCase();
+
+          if ((inputText.length) > 0) {
+            $('.mix').each(function() {
+              if ($(this).find('.name-list-name').text().toLowerCase().match(inputText)) {
+                $matching = $matching.add(this);
+              } else {
+                $matching = $matching.not(this);
+              }
+            });
+            $(".name-container").mixItUp('filter', $matching);
+          } else {
+            $(".name-container").mixItUp('filter', 'all');
+          }
+        }, 200);
+      });
+    });
   }
 
   if ($('.statistics').data('opener') == $(this).attr('id')) {
@@ -39,7 +97,7 @@ $('.subject-add-work').click(function() {
           $(this).closest('.col-xs-11').addClass('col-xs-10').removeClass('col-xs-11').removeClass('subject-work-input').text(subject_work_name).closest('.row');
           // .append('<div class="col-xs-1"><i class="ion-ios-color-wand-outline icon-stats"></i></div>');
         }
-        
+
         button.removeClass('btn-disabled');
       }
     });
@@ -48,20 +106,21 @@ $('.subject-add-work').click(function() {
 
 $('.btn-change').on('click', function() {
   $(this).toggleClass('change-true');
+  var name_list_grades,
+    grade;
 
   if ($(this).hasClass('change-true')) {
-    let name_list_grades = $('.name-list-grades');
+    name_list_grades = $('.name-list-grades');
 
     name_list_grades.each(function(index) {
-      let grade = $(this).text();
+      grade = $(this).text();
       index++;
       $(this).html('<input type="text" tabindex="' + index + '" class="form-control grades-input" id="subject-work-input" placeholder="Hinne" value="' + grade + '">');
     });
   } else {
-    let name_list_grades = $('.grades-input');
-    //console.log(name_list_grades);
+    name_list_grades = $('.grades-input');
     name_list_grades.each(function() {
-      let grade = $(this).val();
+      grade = $(this).val();
       $(this).parent().html(grade);
     });
   }

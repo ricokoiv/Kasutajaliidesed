@@ -10,8 +10,7 @@ body {
     background: url(../img/login-bg.jpg);
     background-size: cover;
     max-width: 100vw;
-    max-height: 100vh;
-    overflow: hidden; }
+    max-height: 100vh; }
     body.login-body .container-fluid {
       height: 100vh;
       display: flex;
@@ -206,6 +205,8 @@ h3 {
 
 #register-checkbox {
   text-align: center; }
+  #register-checkbox .col-xs-6 {
+    padding: 0; }
 
 @media (max-width: 1488px) {
   .panel-body form {
@@ -219,7 +220,16 @@ h3 {
   .grade-progress {
     height: 130px !important; }
     .grade-progress .progress-eap h2 {
-      margin-top: 0 !important; } }
+      margin-top: 0 !important; }
+
+  .login-header .login-panel-header h1 {
+    font-size: 80px; }
+
+  .filter-students {
+    padding-right: 0; }
+
+  .btn-change {
+    margin-top: 10px; } }
 @media (min-width: 768px) {
   .navbar-collapse {
     height: auto;
@@ -403,7 +413,7 @@ li {
       color: #8b92a5;
       border-color: #0073f7; }
 
-.list-grades-input input {
+.list-grades-input input, .tools-container .filter-students input, .list-grades-inputinput {
   text-align: center;
   height: 20px;
   border: 0;
@@ -414,9 +424,20 @@ li {
   border-bottom: 1px solid #D6D6D6;
   padding-bottom: 13px;
   margin-top: 4px; }
-  .list-grades-input input:focus {
+  .list-grades-input input:focus, .tools-container .filter-students input:focus, .list-grades-inputinput:focus {
     box-shadow: none;
     border-color: #0073f7; }
+
+.tools-container {
+  padding-left: 0;
+  padding-right: 0; }
+  .tools-container .filter-students {
+    padding-left: 0; }
+    .tools-container .filter-students input, .tools-container .filter-studentsinput {
+      height: 34px;
+      padding-bottom: 0;
+      margin-top: 0;
+      text-align: left; }
 
 .btn-disabled {
   pointer-events: none;
@@ -432,7 +453,8 @@ li {
   text-align: center;
   background-color: #FB1A51;
   color: white;
-  border-left: 1px solid white; }
+  border-left: 1px solid white;
+  cursor: pointer; }
   .btn-change:hover {
     background-color: #e61649; }
   .btn-change .icon-wand, .btn-change.change-true .icon-tick {
@@ -529,5 +551,8 @@ li {
       .name-list ul li .name-list-grades:empty:after {
         content: 'Puudub';
         color: #FB1A51; }
+
+.mix {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

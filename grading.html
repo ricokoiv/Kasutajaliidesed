@@ -15,6 +15,7 @@
   <link href="css/main.css" rel="stylesheet">
   <script src="bower_components/progressbar.js/dist/progressbar.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
 
 </head>
 
@@ -126,10 +127,16 @@
           <i class="ion-close icon-close"></i>
         </div>
         <div class="row">
-          <div class="col-xs-9 subject-work-header">
+          <div class="col-xs-12 subject-work-header">
             <h4>Kontrolltöö I</h4>
           </div>
-          <div class="col-xs-3 btn-change">
+        </div>
+
+        <div class="col-xs-12 tools-container">
+          <div class="col-xs-12 col-sm-6 filter-students text-left">
+            <input type="text" tabindex="1" class="form-control" id="name-filter" placeholder="Otsi tudengit" value="">
+          </div>
+          <div class="col-xs-12 col-sm-6 btn-change">
             <i class="ion-ios-color-wand-outline icon-wand"></i>
             <i class="ion-checkmark icon-tick"></i>
             <span class="btn-change-text"></span>
@@ -146,52 +153,40 @@
             </div>
           </div>
           <div class="row">
-            <ul>
-              <li>
+            <ul class="name-container">
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name1">
-                    Rico Kõiv
-                  </div>
+                  <div class="col-xs-4 name-list-name name1">Rico Kõiv</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name1 list-grades-input" data-gradeid="name1">4</div>
                 </div>
               </li>
-              <li>
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name2">
-                    Karl Mäe
-                  </div>
+                  <div class="col-xs-4 name-list-name name2">Karl Mäe</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name2 list-grades-input" data-gradeid="name2">3</div>
                 </div>
               </li>
-              <li>
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name3">
-                    Margus Suurkera
-                  </div>
+                  <div class="col-xs-4 name-list-name name3">Margus Suurkera</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name3 list-grades-input" data-gradeid="name3">5</div>
                 </div>
               </li>
-              <li>
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name4">
-                    Kaisa Toom
-                  </div>
+                  <div class="col-xs-4 name-list-name name4">Kaisa Toom</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name4 list-grades-input" data-gradeid="name4">5</div>
                 </div>
               </li>
-              <li>
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name5">
-                    Kristjan Salumaa
-                  </div>
+                  <div class="col-xs-4 name-list-name name5">Kristjan Salumaa</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name5 list-grades-input" data-gradeid="name5"></div>
                 </div>
               </li>
-              <li>
+              <li class="mix">
                 <div class="row">
-                  <div class="col-xs-4 name-list-name name6">
-                    Geity Miilberg
-                  </div>
+                  <div class="col-xs-4 name-list-name name6">Geity Miilberg</div>
                   <div class="col-xs-4 col-xs-offset-3 text-center name-list-grades name6 list-grades-input" data-gradeid="name6">5</div>
                 </div>
               </li>
@@ -204,8 +199,6 @@
     </div>
   </div>
   </div>
-  <script src="bower_components/countup.js/countUp.min.js"></script>
-  <script src="bower_components/chartist/dist/chartist.min.js"></script>
   <script src="js/grading.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
