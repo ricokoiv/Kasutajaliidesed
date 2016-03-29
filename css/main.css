@@ -1,3 +1,4 @@
+input,
 .btn:focus,
 .btn:active {
   outline: none !important; }
@@ -211,8 +212,25 @@ h3 {
 @media (max-width: 1488px) {
   .panel-body form {
     padding-left: 30px;
-    padding-right: 30px; } }
+    padding-right: 30px; }
+
+  .subject-button {
+    margin-bottom: 0; } }
 @media (max-width: 768px) {
+  .container-fluid {
+    overflow-x: hidden;
+    height: 100vh; }
+
+  .statistics {
+    background-color: white;
+    position: absolute;
+    padding-left: 0;
+    padding-right: 30px;
+    height: 100%; }
+    .statistics .row {
+      margin-right: 0;
+      margin-left: 0; }
+
   .panel-body form {
     padding-left: 10px;
     padding-right: 10px; }
@@ -367,6 +385,19 @@ li {
   position: absolute;
   margin-top: -3px; }
 
+.submission-download {
+  cursor: pointer;
+  font-size: 25px;
+  position: absolute;
+  margin-top: -5px; }
+
+.submission-delete {
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  margin-top: -6px;
+  color: #FB1A51; }
+
 .subject-button {
   color: white;
   height: 30px;
@@ -427,6 +458,28 @@ li {
   .list-grades-input input:focus, .tools-container .filter-students input:focus, .list-grades-inputinput:focus {
     box-shadow: none;
     border-color: #0073f7; }
+
+.work-name {
+  padding-top: 10px; }
+  .work-name span {
+    padding-right: 10px; }
+  .work-name input {
+    padding-left: 10px;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.150s linear;
+    border-bottom: 1px solid #D6D6D6; }
+    .work-name input:focus {
+      box-shadow: none;
+      border-color: #0073f7; }
+
+.upload-form {
+  padding-top: 10px; }
+  .upload-form .file-add-button {
+    margin-bottom: 0;
+    margin-top: 3px; }
 
 .tools-container {
   padding-left: 0;
@@ -554,5 +607,15 @@ li {
 
 .mix {
   display: none; }
+
+.dropzone-container {
+  padding-right: 0; }
+  .dropzone-container .dropzone {
+    margin-top: 10px;
+    border: 2px dashed #0073f7;
+    line-height: 100px; }
+    .dropzone-container .dropzone .dz-default {
+      font-weight: 600;
+      margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

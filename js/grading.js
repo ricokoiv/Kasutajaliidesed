@@ -106,6 +106,12 @@ $('.subject-add-work').click(function() {
 
 $('.btn-change').on('click', function() {
   $(this).toggleClass('change-true');
+  $('.grades-input').keyup(function(e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+      $('.btn-change').trigger('click');
+    }
+  });
   var name_list_grades,
     grade;
 
@@ -117,11 +123,28 @@ $('.btn-change').on('click', function() {
       index++;
       $(this).html('<input type="text" tabindex="' + index + '" class="form-control grades-input" id="subject-work-input" placeholder="Hinne" value="' + grade + '">');
     });
+
+    $('.grades-input').keyup(function(e) {
+      if (e.keyCode === 13) {
+        $('.btn-change').trigger('click');
+      }
+    });
+
+    $(document).on("keydown", function (e) {
+        if (e.which === 8 && !$(e.target).is("input, textarea")) {
+          if(!confirm('Oled kindel, et soovid lehelt lahkuda? Andmed on salvestamata.')) {
+            e.preventDefault();
+            return false;
+          }
+        }
+    });
   } else {
     name_list_grades = $('.grades-input');
     name_list_grades.each(function() {
       grade = $(this).val();
       $(this).parent().html(grade);
     });
+
+    $(document).off("keydown");
   }
 });
