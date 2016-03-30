@@ -3,6 +3,14 @@ $('.li-subject').click(function() {
   $(this).parent().find('.li-subject-container').slideToggle();
 });
 
+$('.delete-submission').on('click', function() {
+  if(!confirm('Kas oled kindel, et soovid teadmistekontrolli kustutada?')) {
+    e.preventDefault();
+    return false;
+  }
+  $(this).closest('li').hide();
+});
+
 $('.icon-close').click(function() {
   $('.statistics').toggleClass('statistics-open');
   $('.statistics').data('opener', '');

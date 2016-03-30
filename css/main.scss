@@ -29,6 +29,17 @@ input,
 body {
   background-color: $bg-color;
   font-family: 'Raleway', sans-serif;
+  >.container-fluid {
+    overflow: hidden;
+  }
+  .navcol {
+    position: fixed;
+    overflow: scroll;
+  }
+  .main-container {
+    overflow: scroll;
+    margin-left: 200px;
+  }
   &.login-body {
     background-color: $bg-color-login;
     background: url(../img/login-bg.jpg);
@@ -43,6 +54,9 @@ body {
       align-items: center;
     }
   }
+}
+.left-container {
+  padding-bottom: 50px;
 }
 ul {
   list-style-type: none;
@@ -270,6 +284,22 @@ h3 {
   }
 }
 @media (max-width: 768px) {
+  body {
+    >.container-fluid {
+      overflow: auto;
+    }
+    .navcol {
+      position: static;
+    }
+    .main-container {
+      overflow: auto;
+      margin-left: 0;
+    }
+  }
+  .subject-add-work {
+    margin-bottom: 0 !important;
+    border: none !important;
+  }
   .container-fluid {
     overflow-x: hidden;
     height: 100vh;
@@ -482,7 +512,6 @@ li {
   margin-top: -6px;
   color: $red;
 }
-
 .subject-button {
   color: white;
   height: 30px;
@@ -558,11 +587,9 @@ li {
 }
 .work-name {
   padding-top: 10px;
-
   span {
     padding-right: 10px;
   }
-
   input {
     padding-left: 10px;
     width: 100%;
@@ -577,7 +604,6 @@ li {
     }
   }
 }
-
 .upload-form {
   padding-top: 10px;
   .file-add-button {
@@ -585,8 +611,6 @@ li {
     margin-top: 3px;
   }
 }
-
-
 .tools-container {
   padding-left: 0;
   padding-right: 0;

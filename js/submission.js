@@ -21,7 +21,7 @@ Dropzone.autoDiscover = true;
 // })
 
 $('.delete-submission').on('click', function() {
-  if(!confirm('Oled kindel, et soovid esitatud töö kustutada?')) {
+  if(!confirm('Kas oled kindel, et soovid esitatud töö kustutada?')) {
     e.preventDefault();
     return false;
   }
