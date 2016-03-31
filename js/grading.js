@@ -102,9 +102,16 @@ $('.subject-add-work').click(function() {
         if ($(this).val() === "") {
           $(this).closest('li').remove();
         } else {
-          $(this).closest('.col-xs-11').addClass('col-xs-10').removeClass('col-xs-11').removeClass('subject-work-input').text(subject_work_name).closest('.row');
-          // .append('<div class="col-xs-1"><i class="ion-ios-color-wand-outline icon-stats"></i></div>');
+          $(this).closest('.col-xs-11').addClass('col-xs-10').removeClass('col-xs-11').removeClass('subject-work-input').text(subject_work_name).closest('.row').append('<div class="col-xs-1"></div><div class="col-xs-1 col-sm-1 delete-submission"><i class="ion-ios-close-empty submission-delete"></i></div>');
         }
+
+        $('.delete-submission').on('click', function() {
+          if(!confirm('Kas oled kindel, et soovid teadmistekontrolli kustutada?')) {
+            e.preventDefault();
+            return false;
+          }
+          $(this).closest('li').hide();
+        });
 
         button.removeClass('btn-disabled');
       }

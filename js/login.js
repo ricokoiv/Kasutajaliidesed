@@ -32,10 +32,18 @@ $(function() {
   });
 
   function checkUsername(username) {
-    var students = localStorage.getItem('studentEntity'),
-        teachers = localStorage.getItem('teacherEntity');
+    var student,
+        teacher;
 
-    if (JSON.parse(students).username === username || JSON.parse(teachers).username === username) {
+    if (localStorage.getItem('studentEntity') !== null) {
+      student = JSON.parse(localStorage.getItem('studentEntity')).username;
+    }
+
+    if (localStorage.getItem('teacherEntity') !== null) {
+      teacher = JSON.parse(localStorage.getItem('teacherEntity')).username;
+    }
+
+    if (student === username || teacher === username) {
       return false;
     } else {
       return true;
