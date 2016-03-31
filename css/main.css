@@ -6,14 +6,6 @@ input,
 body {
   background-color: #fff;
   font-family: 'Raleway', sans-serif; }
-  body > .container-fluid {
-    overflow: hidden; }
-  body .navcol {
-    position: fixed;
-    overflow: scroll; }
-  body .main-container {
-    overflow: scroll;
-    margin-left: 200px; }
   body.login-body {
     background-color: #fafcff;
     background: url(../img/login-bg.jpg);
@@ -228,14 +220,6 @@ h3 {
   .subject-button {
     margin-bottom: 0; } }
 @media (max-width: 768px) {
-  body > .container-fluid {
-    overflow: auto; }
-  body .navcol {
-    position: static; }
-  body .main-container {
-    overflow: auto;
-    margin-left: 0; }
-
   .subject-add-work {
     margin-bottom: 0 !important;
     border: none !important; }

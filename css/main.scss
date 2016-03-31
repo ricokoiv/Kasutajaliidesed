@@ -29,17 +29,17 @@ input,
 body {
   background-color: $bg-color;
   font-family: 'Raleway', sans-serif;
-  >.container-fluid {
-    overflow: hidden;
-  }
-  .navcol {
-    position: fixed;
-    overflow: scroll;
-  }
-  .main-container {
-    overflow: scroll;
-    margin-left: 200px;
-  }
+  // >.container-fluid {
+  //   overflow: hidden;
+  // }
+  // .navcol {
+  //   position: fixed;
+  //   overflow: scroll;
+  // }
+  // .main-container {
+  //   overflow: scroll;
+  //   margin-left: 200px;
+  // }
   &.login-body {
     background-color: $bg-color-login;
     background: url(../img/login-bg.jpg);
@@ -284,18 +284,18 @@ h3 {
   }
 }
 @media (max-width: 768px) {
-  body {
-    >.container-fluid {
-      overflow: auto;
-    }
-    .navcol {
-      position: static;
-    }
-    .main-container {
-      overflow: auto;
-      margin-left: 0;
-    }
-  }
+  // body {
+  //   >.container-fluid {
+  //     overflow: auto;
+  //   }
+  //   .navcol {
+  //     position: static;
+  //   }
+  //   .main-container {
+  //     overflow: auto;
+  //     margin-left: 0;
+  //   }
+  // }
   .subject-add-work {
     margin-bottom: 0 !important;
     border: none !important;
