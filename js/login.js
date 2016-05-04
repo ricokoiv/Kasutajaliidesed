@@ -31,8 +31,27 @@ $(function() {
     e.preventDefault();
   });
 
+  function checkUsername(username) {
+    var student,
+        teacher;
+
+    if (localStorage.getItem('studentEntity') !== null) {
+      student = JSON.parse(localStorage.getItem('studentEntity')).username;
+    }
+
+    if (localStorage.getItem('teacherEntity') !== null) {
+      teacher = JSON.parse(localStorage.getItem('teacherEntity')).username;
+    }
+
+    if (student === username || teacher === username) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // kui klikitakse register
-  $('#register-submit').on('click', function() {
+  $('#register-submit').on('click', function(e) {
 
     if ($("#confirm-password").val() !== $("#register-password").val()) {
       $('.alert-error').text("Paroolid peavad ühtima!");
@@ -56,6 +75,13 @@ $(function() {
       $('#confirm-password').focus();
       return false;
     } else {
+      if (!checkUsername($("#register-username").val())) {
+        $('.alert-error').text("Kasutajanimi '" + $("#register-username").val() + "' on juba olemas!");
+        $('#register-username').focus();
+        e.preventDefault();
+        return false;
+      }
+
       if ($("#student-cb").is(':checked')) {
         var studentEntity = {
           'username': $("#register-username").val(),
@@ -63,7 +89,7 @@ $(function() {
           'fullname': $("#fullname").val()
         };
         localStorage.setItem('studentEntity', JSON.stringify(studentEntity));
-        window.location = "index.html";
+        window.location = "studentindex.html";
         return false;
       } else {
         var teacherEntity = {
@@ -93,10 +119,12 @@ $(function() {
     if (studentObject) {
       if ($("#username").val() == JSON.parse(studentObject).username &&
         $("#password").val() == JSON.parse(studentObject).password) {
-        window.location = "index.html";
+        window.location = "studentindex.html";
         return false;
       }
-    } else if (teacherObject) {
+    }
+
+    if (teacherObject) {
       if ($("#username").val() == JSON.parse(teacherObject).username &&
         $("#password").val() == JSON.parse(teacherObject).password) {
         window.location = "teacherindex.html";
