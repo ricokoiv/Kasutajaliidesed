@@ -1,0 +1,76 @@
+<?php
+session_start();
+$loggedIn = isset($_SESSION['user']);
+if ($loggedIn) {
+	include('db/session.php');
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Kasutajaliidesed</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,600,300,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  </head>
+  <?php if ($loggedIn): ?>
+  <body>
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-3 navcol">
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand text-center" href="teacherindex.php"><i class="fa fa-book"></i></a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav text-center">
+                <li class="active"><a href="#"><i class="ion-ios-home-outline nav-icon"></i>Esileht</a></li>
+                <li><a href="grading.php"><i class="ion-ios-list-outline nav-icon"></i>Ained</a></li>
+                <br>
+                <li class="logout-li"><a class="red-button" href="index.php">Logi välja</a></li>
+              </ul>
+            </div>
+          </nav>
+      </div>
+      <div class="col-xs-12 col-sm-9 main-container">
+        <div class="col-xs-12 header">
+            <h1>Tere, Õppejõud</h1>
+        </div>
+
+        <div class="col-xs-12 col-md-6 block">
+
+        </div>
+        <div class="col-xs-12 col-md-6 block">
+
+        </div>
+        <!-- <input type="file" name="somename" size="chars"> -->
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+<?php else: header('Location: index.php') ?>
+<?php endif; ?>
+</html>

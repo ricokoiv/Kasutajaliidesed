@@ -31,24 +31,33 @@ $(function() {
     e.preventDefault();
   });
 
-  function checkUsername(username) {
-    var student,
-        teacher;
-
-    if (localStorage.getItem('studentEntity') !== null) {
-      student = JSON.parse(localStorage.getItem('studentEntity')).username;
-    }
-
-    if (localStorage.getItem('teacherEntity') !== null) {
-      teacher = JSON.parse(localStorage.getItem('teacherEntity')).username;
-    }
-
-    if (student === username || teacher === username) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  //kontrollib iga poole sekundi tagant kasutajanime saadavalolekut
+  var checkTimer;
+  $("#username").keyup(function(e) {
+    clearTimeout(checkTimer);
+    var username = $(this).val();
+    checkTimer = setTimeout(function() { 
+      {
+          $.ajax({
+          url: "./check_username.php",
+          type: "POST",
+          data: {
+            username: $("#register-username").val()
+          },
+          success: function(data) {
+            if (data == 1) {
+              $('.alert-error').text("Selline kasutajanimi on juba olemas!");
+              $('#register-username').focus();
+              return false;
+            } else if (data == 0) {
+              $('.alert-error').text("");
+              return false;
+            }
+          }
+        });
+      }
+    }, 500);
+  });
 
   // kui klikitakse register
   $('#register-submit').on('click', function(e) {
@@ -74,67 +83,42 @@ $(function() {
       $('.alert-error').text("Parooliväli ei tohi jääda tühjaks!");
       $('#confirm-password').focus();
       return false;
-    } else {
-      if (!checkUsername($("#register-username").val())) {
-        $('.alert-error').text("Kasutajanimi '" + $("#register-username").val() + "' on juba olemas!");
-        $('#register-username').focus();
-        e.preventDefault();
-        return false;
-      }
-
-      if ($("#student-cb").is(':checked')) {
-        var studentEntity = {
-          'username': $("#register-username").val(),
-          'password': $("#confirm-password").val(),
-          'fullname': $("#fullname").val()
-        };
-        localStorage.setItem('studentEntity', JSON.stringify(studentEntity));
-        window.location = "studentindex.html";
-        return false;
-      } else {
-        var teacherEntity = {
-          'username': $("#register-username").val(),
-          'password': $("#confirm-password").val(),
-          'fullname': $("#fullname").val()
-        };
-        localStorage.setItem('teacherEntity', JSON.stringify(teacherEntity));
-        window.location = "teacherindex.html";
-        return false;
-      }
     }
-  });
-
-  // kui klikitakse login
-  $('#login-submit').on('click', function(event) {
-    event.preventDefault();
-
-    if (localStorage.getItem('studentEntity') !== null) {
-      var studentObject = localStorage.getItem('studentEntity');
-    }
-
-    if (localStorage.getItem('teacherEntity') !== null) {
-      var teacherObject = localStorage.getItem('teacherEntity');
-    }
-
-    if (studentObject) {
-      if ($("#username").val() == JSON.parse(studentObject).username &&
-        $("#password").val() == JSON.parse(studentObject).password) {
-        window.location = "studentindex.html";
-        return false;
-      }
-    }
-
-    if (teacherObject) {
-      if ($("#username").val() == JSON.parse(teacherObject).username &&
-        $("#password").val() == JSON.parse(teacherObject).password) {
-        window.location = "teacherindex.html";
-        return false;
-      }
-    }
-    $('.alert-error').text("Vale kasutajanimi või parool!");
-    $('#password').val('').focus();
-    return false;
 
   });
 
+  /*
+    // kui klikitakse login
+    $('#login-submit').on('click', function(event) {
+      event.preventDefault();
+
+      if (localStorage.getItem('studentEntity') !== null) {
+        var studentObject = localStorage.getItem('studentEntity');
+      }
+
+      if (localStorage.getItem('teacherEntity') !== null) {
+        var teacherObject = localStorage.getItem('teacherEntity');
+      }
+
+      if (studentObject) {
+        if ($("#username").val() == JSON.parse(studentObject).username &&
+          $("#password").val() == JSON.parse(studentObject).password) {
+          window.location = "studentindex.html";
+          return false;
+        }
+      }
+
+      if (teacherObject) {
+        if ($("#username").val() == JSON.parse(teacherObject).username &&
+          $("#password").val() == JSON.parse(teacherObject).password) {
+          window.location = "teacherindex.html";
+          return false;
+        }
+      }
+      $('.alert-error').text("Vale kasutajanimi või parool!");
+      $('#password').val('').focus();
+      return false;
+
+    });
+  */
 });
