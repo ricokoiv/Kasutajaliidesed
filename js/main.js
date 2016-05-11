@@ -16,7 +16,8 @@ localStorage.setItem('grades', JSON.stringify({
 }));
 
 var options = {
-  seriesBarDistance: 15
+  seriesBarDistance: 15,  
+  onlyInteger : true
 };
 
 var responsiveOptions = [
@@ -55,33 +56,63 @@ $('.li-subject').click(function() {
   $(this).parent().find('.li-subject-container').slideToggle();
 });
 
+function calculateStatistics(description, data) {
+
+  var grades = [0, 0, 0, 0, 0, 0];
+  for (var i = 0; i < data.length; i++) {
+    grades[data[i].grade] = parseInt(data[i].CountOf);
+  }
+  console.log(grades);
+  var object = {
+    'name': description,
+    'data': grades
+  }
+  
+  return object;
+}
+
 $('.statistics-true').click(function() {
+  var course_id = $(this).attr('class').replace(/^(\S*).*/, '$1');
+  var statistics_id = $(this).attr('id');
+  var description = $(this).find('.c-desc').text();
+
+  $.ajax({
+    url: "./gradestatistics.php",
+    type: "POST",
+    dataType: "json",
+    //async: false,
+    data: {
+      course_id: course_id,
+      description: description
+    },
+    success: function(data) {
+      //calculateStatistics(description, data);
+
   if (!$('.statistics').hasClass('statistics-open')) {
     $('.statistics').toggleClass('statistics-open');
+  } else {
+
   }
 
-  if ($('.statistics').data('opener') == $(this).attr('id')) {
+  if ($('.statistics').data('opener') == statistics_id) {
     $('.statistics').toggleClass('statistics-open');
     $('.statistics').data('opener', '');
   } else {
-    $('.statistics').data("opener", $(this).attr('id'));
+    $('.statistics').data("opener", statistics_id);
   }
-
-  var grade_name = $(this).attr('id'),
-    grades = localStorage.getItem('grades'),
-    grades_parsed = JSON.parse(grades),
-    grades_parsed_name = grades_parsed[grade_name].name,
-    grades_parsed_data = grades_parsed[grade_name].data;
 
   var data = {
     labels: ['0', '1', '2', '3', '4', '5'],
     series: [
-      grades_parsed_data
+      calculateStatistics(description, data)
     ]
   };
 
-  $('#statistics-name').text(grades_parsed_name);
+  $('#statistics-name').text(description);
   new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+  
+      }
+  });
 });
 
 $('.icon-close').click(function() {

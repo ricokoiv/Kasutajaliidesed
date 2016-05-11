@@ -2,6 +2,7 @@
 session_start();
 $loggedIn = isset($_SESSION['user']);
 if ($loggedIn) {
+  $userId = $_SESSION['user'];
 	include('db/session.php');
 }
 ?>
@@ -94,13 +95,31 @@ if ($loggedIn) {
           <div class="col-xs-12">
             <h2>Ained</h2>
           </div>
+          
           <div class="col-xs-12">
             <ul>
+              <?php
+                  $count_desc = 0;						 
+                  $con = mysqli_connect("localhost","st2014","progress","st2014");
+                  if (!$con) {
+                    die('Could not connect: ' . mysqli_connect_error());
+                  }    
+                  
+                  $sql="select distinct course, course_id from t135190_klgrades2, t135190_klusers1, t135190_klcourses1 
+                  where t135190_klgrades2.user_id = t135190_klusers1.id and user_id='".$userId."'
+                  and t135190_klgrades2.course_id = t135190_klcourses1.id;";
+                  $select = mysqli_query($con,$sql);
+                  while($row = mysqli_fetch_array($select)) :
+                    
+                    $course=$row['course'];
+                    $course_id=$row['course_id'];                    
+                  ?>
+                                                  
                 <li>
                     <div class="col-xs-12 li-subject">
                       <div class="col-xs-10">
                         <i class="ion-ios-arrow-right li-arrow"></i>
-                        <h4>Matemaatiline Analüüs II</h4>
+                        <h4><?php echo $course; ?></h4>
                       </div>
                       <div class="col-xs-2 text-right">
                         <i class="ion-ios-checkmark-empty li-passed"></i>
@@ -108,95 +127,28 @@ if ($loggedIn) {
                     </div>
                     <div class="col-xs-12 li-subject-container">
                       <ul class="li-subject-container-grades">
-                        <li class="statistics-true" id="ma2-kt1">
-                          <div class="row">
-                            <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö I</div>
-                            <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>4</b></div>
-                            <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div>
-                          </div>
-                        </li>
-                        <li id="ma2-kt2">
-                          <div class="row">
-                            <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö II</div>
-                            <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>3</b></div>
-                            <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                          </div>
-                        </li>
-                        <li class="statistics-true" id="ma2-e">
-                          <div class="row">
-                            <div class="col-xs-8 col-sm-8 col-lg-10">Eksam</div>
-                            <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>2</b></div>
-                            <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div>
-                          </div>
-                        </li>
+                        <?php						                                                         
+                            $sql="select * from t135190_klgrades2 where course_id='".$course_id."' and user_id='".$userId."';";
+                            $select1 = mysqli_query($con,$sql);
+                            
+                            while($row1 = mysqli_fetch_array($select1)) :
+                              
+                              $grade=$row1['grade'];
+                              $description=utf8_encode($row1['description']);
+                              
+                            ?>
+                              <li class="<?php echo $course_id; ?> statistics-true" id="<?php echo $count_desc++; ?>-desc">
+                                <div class="row">
+                                  <div class="col-xs-8 col-sm-8 col-lg-10 c-desc"><?php echo $description; ?></div>
+                                  <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b><?php echo $grade; ?></b></div>
+                                  <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div>
+                                </div>
+                              </li>
+                        <?php endwhile; ?> 
                       </ul>
                     </div>
                 </li>
-                <li>
-                  <div class="col-xs-12 li-subject">
-                    <div class="col-xs-10">
-                      <i class="ion-ios-arrow-right li-arrow"></i>
-                      <h4>Lineaaralgebra</h4>
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <i class="ion-ios-close-empty li-fail"></i>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 li-subject-container">
-                    <ul class="li-subject-container-grades">
-                      <li>
-                        <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö I</div>
-                          <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>1</b></div>
-                          <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                        </div>
-                      </li>
-                      <li>
-                        <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö II</div>
-                          <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>2</b></div>
-                          <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                        </div>
-                      </li>
-                      <li>
-                        <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-lg-10">Eksam</div>
-                          <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>0</b></div>
-                          <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="col-xs-12 li-subject">
-                    <div class="col-xs-10">
-                      <i class="ion-ios-arrow-right li-arrow"></i>
-                      <h4>Õigusõpetus</h4>
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <!-- <i class="ion-ios-checkmark-empty li-passed"></i> -->
-                    </div>
-                  </div>
-                  <div class="col-xs-12 li-subject-container">
-                    <ul class="li-subject-container-grades">
-                      <li>
-                        <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö I</div>
-                          <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>5</b></div>
-                          <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                        </div>
-                      </li>
-                      <li>
-                        <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-lg-10">Kontrolltöö II</div>
-                          <div class="col-xs-2 col-sm-2 col-md-1 text-center"><b>5</b></div>
-                          <!-- <div class="col-xs-2 col-sm-2 col-md-1 text-center"><i class="ion-stats-bars icon-stats"></i></div> -->
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                <?php endwhile; ?>              
             </ul>
           </div>
         </div>
