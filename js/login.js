@@ -87,38 +87,16 @@ $(function() {
 
   });
 
-  /*
+     /*
     // kui klikitakse login
     $('#login-submit').on('click', function(event) {
+      
       event.preventDefault();
 
-      if (localStorage.getItem('studentEntity') !== null) {
-        var studentObject = localStorage.getItem('studentEntity');
-      }
-
-      if (localStorage.getItem('teacherEntity') !== null) {
-        var teacherObject = localStorage.getItem('teacherEntity');
-      }
-
-      if (studentObject) {
-        if ($("#username").val() == JSON.parse(studentObject).username &&
-          $("#password").val() == JSON.parse(studentObject).password) {
-          window.location = "studentindex.html";
-          return false;
-        }
-      }
-
-      if (teacherObject) {
-        if ($("#username").val() == JSON.parse(teacherObject).username &&
-          $("#password").val() == JSON.parse(teacherObject).password) {
-          window.location = "teacherindex.html";
-          return false;
-        }
-      }
       $('.alert-error').text("Vale kasutajanimi või parool!");
       $('#password').val('').focus();
       return false;
-
+      
     });
-  */
+    */
 });

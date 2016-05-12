@@ -28,6 +28,12 @@ if (isset($_POST['login-submit'])) {
                 }
             } else {
                 $error = 'Username or password is invalid!';
+                ?>           
+                <script type="text/javascript">
+                console.log("Username or password is invalid!");
+                document.getElementById("alert").innerText = "Username or password is invalid!";
+                </script>
+                <?php
             }
      } 
     
