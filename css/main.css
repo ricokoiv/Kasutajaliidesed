@@ -625,4 +625,43 @@ li {
       font-weight: 600;
       margin: 0; }
 
+/* Popup */
+.popup-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: none;
+  align-items: center;
+  justify-content: center; }
+  .popup-container .popup {
+    background-color: white;
+    padding: 50px; }
+    .popup-container .popup .popup-desc h1 {
+      font-size: 32px; }
+    .popup-container .popup .popup-btns {
+      margin-top: 100px; }
+      .popup-container .popup .popup-btns .popup-btn {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer; }
+        .popup-container .popup .popup-btns .popup-btn.popup-btn--accept {
+          background-color: #1be04f;
+          border-right: 2px solid white;
+          border-left: 2px solid white; }
+          .popup-container .popup .popup-btns .popup-btn.popup-btn--accept:hover {
+            background-color: #67e889; }
+        .popup-container .popup .popup-btns .popup-btn.popup-btn--decline {
+          background-color: #FB1A51;
+          border-right: 2px solid white;
+          border-left: 2px solid white; }
+          .popup-container .popup .popup-btns .popup-btn.popup-btn--decline:hover {
+            background-color: #b3052f; }
+
 /*# sourceMappingURL=main.css.map */

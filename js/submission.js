@@ -21,9 +21,26 @@ Dropzone.autoDiscover = true;
 // })
 
 $('.delete-submission').on('click', function() {
-  if(!confirm('Kas oled kindel, et soovid esitatud töö kustutada?')) {
-    e.preventDefault();
-    return false;
-  }
-  $(this).closest('li').hide();
+  // if(!confirm('Kas oled kindel, et soovid esitatud töö kustutada?')) {
+  //   e.preventDefault();
+  //   return false;
+  // }
+  
+  var li = $(this).closest('li');
+  $('.popup-container').css('display', 'flex');
+  $(document).on('click', function(e) {
+    if( e.target.id == 'popup') {
+      $(".popup-container").hide();
+      $(document).off();
+    }
+  });
+  $('.popup-btn--accept').on('click', function() {
+    li.hide();
+    $('.popup-btn--accept').off();
+    $('.popup-container').hide();
+  });
+  $('.popup-btn--decline').on('click', function() {
+    $('.popup-container').hide();
+    $('.popup-btn--decline').off();
+  });
 });
