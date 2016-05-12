@@ -124,7 +124,13 @@ var easeOutCubic = function(t, b, c, d) {
   return c / 2 * ((t -= 2) * t * t + 2) + b;
 }
 var options = {  
-  easingFn: easeOutCubic
+  easingFn: easeOutCubic,  
+  axisY: {
+    onlyInteger : true,
+    labelInterpolationFnc: function(value) {
+      return Math.abs(value);
+    }
+  }
 };
 
 var eap_total_anim = new CountUp("eap_total", 0, 137, 0, 0, options);
